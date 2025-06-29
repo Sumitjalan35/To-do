@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaskMaster - Smart To-Do App</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-tasks"></i>
+          <h1>TaskMaster</h1>
+        </div>
+        <div class="header-actions">
+          <button class="theme-toggle" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Stats Section -->
+        <div class="stats-section">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-list"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="total-tasks">0</span>
+              <span class="stat-label">Total Tasks</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon completed">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="completed-tasks">0</span>
+              <span class="stat-label">Completed</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon pending">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <span class="stat-number" id="pending-tasks">0</span>
+              <span class="stat-label">Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+          <div class="input-wrapper">
+            <i class="fas fa-plus input-icon"></i>
+            <input type="text" id="todo-input" placeholder="What needs to be done?">
+            <button class="add-btn" onclick="addTodo()">
+              <i class="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">
+              <i class="fas fa-list"></i>
+              All
+            </button>
+            <button class="filter-btn" data-filter="pending">
+              <i class="fas fa-clock"></i>
+              Pending
+            </button>
+            <button class="filter-btn" data-filter="completed">
+              <i class="fas fa-check"></i>
+              Completed
+            </button>
+          </div>
+          <div class="sort-section">
+            <select id="sort-select" class="sort-select">
+              <option value="date">Sort by Date</option>
+              <option value="name">Sort by Name</option>
+              <option value="priority">Sort by Priority</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tasks List -->
+        <div class="tasks-section">
+          <div class="tasks-header">
+            <h2>Your Tasks</h2>
+            <button class="clear-completed" id="clear-completed">
+              <i class="fas fa-trash"></i>
+              Clear Completed
+            </button>
+          </div>
+          <div class="tasks-container">
+            <ul id="todo-list" class="tasks-list"></ul>
+            <div class="empty-state" id="empty-state">
+              <i class="fas fa-clipboard-list"></i>
+              <h3>No tasks yet</h3>
+              <p>Add your first task to get started!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section">
+          <div class="progress-header">
+            <span>Progress</span>
+            <span class="progress-percentage" id="progress-percentage">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 TaskMaster. Built with ❤️ for productivity.</p>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="toast-icon"></i>
+      <span class="toast-message"></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
