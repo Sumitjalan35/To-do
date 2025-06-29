@@ -1,4 +1,4 @@
-// DOM Elements
+
 const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
 const emptyState = document.getElementById('empty-state');
@@ -8,19 +8,19 @@ const sortSelect = document.getElementById('sort-select');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const toast = document.getElementById('toast');
 
-// Stats elements
+
 const totalTasksEl = document.getElementById('total-tasks');
 const completedTasksEl = document.getElementById('completed-tasks');
 const pendingTasksEl = document.getElementById('pending-tasks');
 const progressPercentageEl = document.getElementById('progress-percentage');
 const progressFillEl = document.getElementById('progress-fill');
 
-// App State
+
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
 let currentFilter = 'all';
 let currentSort = 'date';
 
-// Initialize app
+
 function initApp() {
   loadTheme();
   renderTodos();
@@ -28,7 +28,7 @@ function initApp() {
   setupEventListeners();
 }
 
-// Setup event listeners
+
 function setupEventListeners() {
   // Input events
   input.addEventListener('keypress', (e) => {
@@ -37,19 +37,19 @@ function setupEventListeners() {
     }
   });
 
-  // Theme toggle
+
   themeToggle.addEventListener('click', toggleTheme);
 
-  // Clear completed
+
   clearCompletedBtn.addEventListener('click', clearCompleted);
 
-  // Sort select
+
   sortSelect.addEventListener('change', (e) => {
     currentSort = e.target.value;
     renderTodos();
   });
 
-  // Filter buttons
+ 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -60,7 +60,7 @@ function setupEventListeners() {
   });
 }
 
-// Theme management
+
 function loadTheme() {
   const savedTheme = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', savedTheme);
@@ -81,7 +81,7 @@ function updateThemeIcon(theme) {
   icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
 }
 
-// Todo functions
+
 function addTodo() {
   const task = input.value.trim();
   if (task === '') {
@@ -148,7 +148,7 @@ function clearCompleted() {
   showToast(`${completedCount} completed tasks cleared!`, 'success');
 }
 
-// Render functions
+
 function renderTodos() {
   const filteredTodos = filterTodos();
   const sortedTodos = sortTodos(filteredTodos);
@@ -210,7 +210,7 @@ function sortTodos(todos) {
   }
 }
 
-// Stats and progress
+
 function updateStats() {
   const total = todos.length;
   const completed = todos.filter(todo => todo.completed).length;
@@ -224,7 +224,7 @@ function updateStats() {
   progressFillEl.style.width = `${progress}%`;
 }
 
-// Utility functions
+
 function saveTodos() {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
@@ -240,23 +240,23 @@ function showToast(message, type = 'success') {
   const toastIcon = toastContent.querySelector('.toast-icon');
   const toastMessage = toastContent.querySelector('.toast-message');
   
-  // Set icon
+ 
   toastIcon.className = `fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}`;
   
-  // Set message
+  
   toastMessage.textContent = message;
   
-  // Set toast type
+  
   toast.className = `toast ${type}`;
   
-  // Show toast
+ 
   toast.classList.add('show');
   
-  // Hide after 3 seconds
+ 
   setTimeout(() => {
     toast.classList.remove('show');
   }, 3000);
 }
 
-// Initialize the app
+
 document.addEventListener('DOMContentLoaded', initApp);
