@@ -1,6 +1,6 @@
-/* CSS Variables for theming */
+//CSS Variables for theming 
 :root {
-  /* Light Theme */
+  //Light Theme
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
@@ -21,7 +21,7 @@
   --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-/* Dark Theme */
+// Dark Theme 
 [data-theme="dark"] {
   --bg-primary: #0f172a;
   --bg-secondary: #1e293b;
@@ -37,7 +37,7 @@
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
 }
 
-/* Reset and Base Styles */
+// Reset and Base Styles
 * {
   margin: 0;
   padding: 0;
@@ -52,14 +52,14 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* App Container */
+// App Container
 .app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
+// Header
 .header {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--border-color);
@@ -127,7 +127,7 @@ body {
   padding: 0 2rem;
 }
 
-/* Stats Section */
+// Stats Section
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -188,7 +188,7 @@ body {
   font-weight: 500;
 }
 
-/* Input Section */
+// Input Section
 .input-section {
   margin-bottom: 2rem;
 }
@@ -254,7 +254,7 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* Filters Section */
+// Filters Section
 .filters-section {
   display: flex;
   justify-content: space-between;
@@ -306,7 +306,7 @@ body {
   font-size: 0.875rem;
 }
 
-/* Tasks Section */
+// Tasks Section
 .tasks-section {
   background: var(--bg-primary);
   border-radius: 1rem;
@@ -432,7 +432,7 @@ body {
   background: #dc2626;
 }
 
-/* Empty State */
+// Empty State
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -459,7 +459,7 @@ body {
   font-size: 0.875rem;
 }
 
-/* Progress Section */
+// Progress Section
 .progress-section {
   background: var(--bg-primary);
   padding: 1.5rem;
@@ -500,7 +500,7 @@ body {
   width: 0%;
 }
 
-/* Footer */
+// Footer
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border-color);
@@ -510,7 +510,7 @@ body {
   font-size: 0.875rem;
 }
 
-/* Toast Notification */
+//Toast Notification
 .toast {
   position: fixed;
   top: 2rem;
@@ -553,7 +553,7 @@ body {
   font-weight: 500;
 }
 
-/* Responsive Design */
+// Responsive Design
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
@@ -589,7 +589,7 @@ body {
   }
 }
 
-/* Animations */
+//Animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -605,7 +605,7 @@ body {
   animation: fadeIn 0.3s ease;
 }
 
-/* Custom Scrollbar */
+// Custom Scrollbar
 ::-webkit-scrollbar {
   width: 6px;
 }
